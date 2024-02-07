@@ -1,5 +1,3 @@
-
-import java.util.HashMap;
 /*
  * Copyright (C) 2023 Alexander Granåsen at https://github.com/alexandergranasen
  *
@@ -21,16 +19,26 @@ import java.util.HashMap;
  *
  * @author Alexander Granåsen at https://github.com/alexandergranasen
  */
-public class Nicknames {
+public class Main {
 
     public static void main(String[] args) {
-        // Do the operations required here!
-        HashMap<String, String> nickNames = new HashMap<>();
-        nickNames.put("matthew", "matt");
-        nickNames.put("michael", "mix");
-        nickNames.put("arthur", "artie");
-        
-        System.out.println(nickNames.get("matthew"));
-    }
+        // Test your program here!
+        Abbreviations abbreviations = new Abbreviations();
+        abbreviations.addAbbreviation("e.g.", "for example");
+        abbreviations.addAbbreviation("etc.", "and so on");
+        abbreviations.addAbbreviation("i.e.", "more precisely");
 
+        String text = "e.g. i.e. etc. lol";
+
+        for (String part: text.split(" ")) {
+            if(abbreviations.hasAbbreviation(part)) {
+                part = abbreviations.findExplanationFor(part);
+            }
+
+            System.out.print(part);
+            System.out.print(" ");
+        }
+
+        System.out.println();
+    }
 }
