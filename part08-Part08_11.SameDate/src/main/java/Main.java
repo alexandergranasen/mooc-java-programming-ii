@@ -22,12 +22,10 @@
 public class Main {
 
     public static void main(String[] args) {
-        // Test your program here
-        IOU mattsIOU = new IOU();
-        mattsIOU.setSum("Arthur", 51.5);
-        mattsIOU.setSum("Michael", 30);
-
-        System.out.println(mattsIOU.howMuchDoIOweTo("Arthur"));
-        System.out.println(mattsIOU.howMuchDoIOweTo("Michael"));
+        // make test programs here
+        SimpleDate d = new SimpleDate(1, 2, 2000);
+        System.out.println(d.equals("heh"));
+        System.out.println(d.equals(new SimpleDate(5, 2, 2012)));
+        System.out.println(d.equals(new SimpleDate(1, 2, 2000)));
     }
 }

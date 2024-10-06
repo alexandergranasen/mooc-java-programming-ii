@@ -19,15 +19,18 @@
  *
  * @author Alexander Granåsen at https://github.com/alexandergranasen
  */
-public class Main {
+public class Program {
 
     public static void main(String[] args) {
-        // Test your program here
-        IOU mattsIOU = new IOU();
-        mattsIOU.setSum("Arthur", 51.5);
-        mattsIOU.setSum("Michael", 30);
+        DictionaryOfManyTranslations dictionary = new DictionaryOfManyTranslations();
+        dictionary.add("lie", "maata");
+        dictionary.add("lie", "valehdella");
 
-        System.out.println(mattsIOU.howMuchDoIOweTo("Arthur"));
-        System.out.println(mattsIOU.howMuchDoIOweTo("Michael"));
+        dictionary.add("bow", "jousi");
+        dictionary.add("bow", "kumartaa");
+
+        System.out.println(dictionary.translate("lie"));
+        dictionary.remove("bow");
+        System.out.println(dictionary.translate("bow"));
     }
 }

@@ -19,15 +19,27 @@
  *
  * @author Alexander Granåsen at https://github.com/alexandergranasen
  */
-public class Main {
+public class Program {
 
     public static void main(String[] args) {
         // Test your program here
-        IOU mattsIOU = new IOU();
-        mattsIOU.setSum("Arthur", 51.5);
-        mattsIOU.setSum("Michael", 30);
+        StorageFacility facility = new StorageFacility();
+        facility.add("a14", "ice skates");
+        facility.add("a14", "ice hockey stick");
+        facility.add("a14", "ice skates");
 
-        System.out.println(mattsIOU.howMuchDoIOweTo("Arthur"));
-        System.out.println(mattsIOU.howMuchDoIOweTo("Michael"));
+        facility.add("f156", "rollerblades");
+        facility.add("f156", "rollerblades");
+
+        facility.add("g63", "six");
+        facility.add("g63", "pi");
+
+        facility.remove("f156", "rollerblades");
+
+        System.out.println(facility.contents("f156"));
+
+        facility.remove("f156", "rollerblades");
+
+        System.out.println(facility.storageUnits());
     }
 }
