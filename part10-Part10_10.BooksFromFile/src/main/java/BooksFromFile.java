@@ -13,5 +13,25 @@ public class BooksFromFile {
         // test your method here
 
     }
+    
+    //Do Androids Dream of Electric Sheep?,1968,210,Philip K. Dick
+    //Love in the Time of Cholera,1985,348,Gabriel Garcia Marquez
+    public static List<Book> readBooks(String file) {
+            
+        List<Book> books = new ArrayList<>();
+        
+        try {
+            Files.lines(Paths.get(file))
+                    .map(row -> row.split(","))
+                    .filter(parts -> parts.length >= 4)
+                    .map(parts -> new Book(parts[0], Integer.valueOf(parts[1]), Integer.valueOf(parts[2]), parts[3]))
+                    .forEach(Book -> books.add(Book));
+                    
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        
+        return books;
+    }
 
 }
